@@ -1,8 +1,9 @@
 import { usePage } from '@inertiajs/react';
-import { LayoutGrid, Users, MonitorCog, Bell, ChevronLeft, X } from 'lucide-react';
+import { LayoutGrid, Users, MonitorCog, Bell, ChevronLeft, X, Building2 } from 'lucide-react';
 import NavLink from './NavLink';
 import QuickLink from './QuickLink';
 import UserMenu from './UserMenu';
+
 
 const QUICK_LINKS = [
     { label: 'MCS - 150', href: 'https://www.fmcsa.dot.gov/registration/form-mcs-150-and-instructions-motor-carrier-identification-report' },
@@ -80,6 +81,7 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
 
                     <div className="space-y-1">
                         <NavLink href="/overview" icon={LayoutGrid} label="Overview" active={isActive('/overview')} collapsed={collapsed} />
+                        <NavLink href="/companies" icon={Building2} label="Companies" active={isActive('/companies')} collapsed={collapsed} />
                         <NavLink href="/users" icon={Users} label="Users" active={isActive('/users')} collapsed={collapsed} />
                         <NavLink href="/roles" icon={MonitorCog} label="Roles & Permissions" active={isActive('/roles')} collapsed={collapsed} />
                         <NavLink
