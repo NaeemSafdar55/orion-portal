@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('vehicles', \App\Http\Controllers\VehicleController::class);
 });
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/overview', function () {
+Route::get('/overview', function () {
     $needsAttention = fn ($query) => $query->needsAttention();
 
     $driverAlerts = \App\Models\Driver::whereHas('documents', $needsAttention)->count();
@@ -45,6 +45,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'drivers' => $driverAlerts,
             'vehicles' => $vehicleAlerts,
             'other' => $otherAlerts,
+        ],
+        'totals' => [
+            'companies' => \App\Models\Company::count(),
+            'drivers' => \App\Models\Driver::count(),
+            'vehicles' => \App\Models\Vehicle::count(),
         ],
     ]);
 })->name('overview');
