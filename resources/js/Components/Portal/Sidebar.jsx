@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { LayoutGrid, Users, MonitorCog, Bell, ChevronLeft, X, Building2 } from 'lucide-react';
+import { LayoutGrid, Users, MonitorCog, Bell, ChevronLeft, X, Building2, UserRound, Truck } from 'lucide-react';
 import NavLink from './NavLink';
 import QuickLink from './QuickLink';
 import UserMenu from './UserMenu';
@@ -82,6 +82,8 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
                     <div className="space-y-1">
                         <NavLink href="/overview" icon={LayoutGrid} label="Overview" active={isActive('/overview')} collapsed={collapsed} />
                         <NavLink href="/companies" icon={Building2} label="Companies" active={isActive('/companies')} collapsed={collapsed} />
+                        <NavLink href="/drivers" icon={UserRound} label="Drivers" active={isActive('/drivers')} collapsed={collapsed} />
+                        <NavLink href="/vehicles" icon={Truck} label="Vehicles" active={isActive('/vehicles')} collapsed={collapsed} />
                         <NavLink href="/users" icon={Users} label="Users" active={isActive('/users')} collapsed={collapsed} />
                         <NavLink href="/roles" icon={MonitorCog} label="Roles & Permissions" active={isActive('/roles')} collapsed={collapsed} />
                         <NavLink

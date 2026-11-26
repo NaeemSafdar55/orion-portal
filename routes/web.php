@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+
 Route::get('/', function () {
     return auth()->check()
         ? redirect()->route('overview')
@@ -20,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('companies', \App\Http\Controllers\CompanyController::class);
+    Route::resource('drivers', \App\Http\Controllers\DriverController::class);
+    Route::resource('vehicles', \App\Http\Controllers\VehicleController::class);
 });
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/overview', function () {
